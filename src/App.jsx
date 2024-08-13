@@ -5,7 +5,15 @@ function App() {
   return (
     <CartContextProvider>
       <div className="container">
-        React ContextAPI
+        <h1
+          style={{
+            textAlign: "center",
+            fontSize: "3rem",
+            color: "green",
+            marginBottom: "2rem",
+          }}>
+          React Context API
+        </h1>
         <CartList />
       </div>
       ;

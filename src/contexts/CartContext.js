@@ -8,12 +8,18 @@ export const cartReducer = (state, action) => {
         cartItems: action.payload,
       };
 
+    case "deleteItem":
+      return {
+        ...state,
+        cartItems: action.payload,
+      };
+
     default:
       throw new Error("Unknown action type");
   }
 };
 
-export const CartContext = createContext({ cartItems: [] });
+export const CartContext = createContext();
 
 export const useCart = () => {
   const cartCtx = useContext(CartContext);
