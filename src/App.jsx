@@ -1,5 +1,16 @@
+import CartList from "./CartList";
+import CartContextProvider from "./contexts/CartContextProvider";
+
 function App() {
-  return <div className="container">React ContextAPI</div>;
+  return (
+    <CartContextProvider>
+      <div className="container">
+        React ContextAPI
+        <CartList />
+      </div>
+      ;
+    </CartContextProvider>
+  );
 }
 
 export default App;
