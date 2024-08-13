@@ -13,7 +13,7 @@ export const cartReducer = (state, action) => {
   }
 };
 
-export const CartContext = createContext();
+export const CartContext = createContext({ cartItems: [] });
 
 export const useCart = () => {
   const cartCtx = useContext(CartContext);
