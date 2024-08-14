@@ -4,7 +4,21 @@
 
 :root {
   --clr-bg-body: #f5f7f8;
+  --font-size: 1rem;
+  --clr-red-400: hsl(342, 100%, 48%);
+  --clr-red-700: hsl(342, 100%, 30%);
 }
+@media (min-width: 25em) {
+  :root {
+    --font-size: 1rem;
+  }
+}
+@media (min-width: 60em) {
+  :root {
+    --font-size: 1.1rem;
+  }
+}
+
 /* CSS RESET */
 
 /*
@@ -26,6 +40,10 @@
   3. Add accessible line-height
   4. Improve text rendering
 */
+
+html {
+  font-size: var(--font-size);
+}
 body {
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
@@ -101,6 +119,13 @@ h6 {
   flex-basis: 1rem;
 }
 
+@media (max-width: 48em) {
+  .cartitem {
+    flex-direction: column;
+    align-content: flex-start;
+  }
+}
+
 .cartitem .cartitem__details {
   flex-grow: 2;
 }
@@ -136,6 +161,13 @@ h6 {
   font-size: 1.25rem;
 }
 
+.quantity {
+  font-size: 1.15rem;
+  display: flex;
+  gap: 1rem;
+  justify-content: flex-end;
+}
+
 .price {
   display: flex;
   flex-direction: column;
@@ -146,16 +178,21 @@ h6 {
 }
 
 .price button {
-  background-color: transparent;
+  background-color: var(--clr-red-700);
+  font-weight: 400;
+  padding: 0.4em;
+  border-radius: 0.4em;
+  color: var(--clr-bg-body);
   border: none;
   cursor: pointer;
+  transition: transform 100ms, background-color 500ms;
 }
 
 .price button:focus,
 .price button:hover {
-  color: red;
   outline: none;
-  text-decoration: underline;
+  transform: scale(1.05);
+  background-color: var(--clr-red-400);
 }
 
 .cart-description > *,
