@@ -103,11 +103,41 @@ const cartReducer = (state, action) => {
 };
 ```
 
-The reducer function is anormal function which has access to the current state
+The reducer function is a normal function which has access to the current state
 **(state)** and and a **action** variable.
 
 The action variable contains the actions to be performed in the app which is
-dispatched through the [**dispatchFn**](#reducer--funtion) returned through the
-**useReducer** hook.
+dispatched through the [**dispatch funtion**](#dispatch-funtion) returned
+through the **useReducer** hook.
+
+The action parameter is normally a javaScript object where there is a type
+property **(action.type)** and a payload property **(action.payload)**.
+
+The type property has a string which describes the action to be performed to the
+state.
+
+The payload is the value which is the new value for the state variables.
+
+Each action type is handled inside the reducer function with a switch statement.
+Each case should return the changed state **(NOTE : We should not mutate the
+state object rather we should return the new state object with all states by
+only changing the respective state for the action)**.
 
 ## Dispatch function
+
+This function is returned from the useReducer hook to dispatch various actions
+required for the app.
+
+```js
+const [state, dispatchFn] = useReducer(reducerFn, initialValue);
+
+// called inside a event handler function or inside a effect
+dispatchFn({ type: "deleteItem", payload: updatedItems });
+```
+
+The dispatch function **(dispatchFn)** is provided with the action which end up
+in the [**reducer funtion**](#reducer-function) where it changes the state and
+return the current state.
+
+This change in state re-renders the component thus by synchronising the UI with
+the current state.
