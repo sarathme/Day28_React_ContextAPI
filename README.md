@@ -57,7 +57,7 @@ In the returned context object we get to access the current states and state
 changing functions which can use to display it in the UI or change the state
 using the state changing functions.
 
-# React useReducer Hook
+## React useReducer Hook
 
 This useReducer hook is similiar to the useState hook with the difference here
 the dependent states are managed in the same hook rather by providing differnt
